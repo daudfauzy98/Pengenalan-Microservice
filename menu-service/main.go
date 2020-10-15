@@ -12,8 +12,8 @@ import (
 func main() {
 	router := mux.NewRouter()
 
-	router.Handler("/add-item", http.HandlerFunc(handler.AddMenu))
+	router.Handle("/add-item", http.HandlerFunc(handler.AddMenu))
 
 	fmt.Println("Menu service listen on port :8000")
-	log.Panic(htpp.ListenAndServer(":8000", router))
+	log.Panic(http.ListenAndServe(":8000", router))
 }
